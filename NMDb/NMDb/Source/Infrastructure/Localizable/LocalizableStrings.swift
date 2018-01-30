@@ -10,6 +10,9 @@ import Foundation
 
 enum LocalizableStrings: String {
     
+    // Strings
+    case mainTitle
+    
     // Error Handling
     case fatalError
     case unexpectedError

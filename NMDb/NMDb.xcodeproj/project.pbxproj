@@ -11,7 +11,7 @@
 		8525F57A2A31C17EDBD3A4A4 /* Pods_NMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CD1737709BBE2F931943F8 /* Pods_NMDbTests.framework */; };
 		989012F0ED02F73A12579AF1 /* Pods_NMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4500E6723B3B91281488395 /* Pods_NMDb.framework */; };
 		E1C437DA201F3B6C00FE1BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C437D9201F3B6C00FE1BB3 /* AppDelegate.swift */; };
-		E1C437DC201F3B6C00FE1BB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C437DB201F3B6C00FE1BB3 /* ViewController.swift */; };
+		E1C437DC201F3B6C00FE1BB3 /* LauchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C437DB201F3B6C00FE1BB3 /* LauchViewController.swift */; };
 		E1C437DF201F3B6C00FE1BB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C437DD201F3B6C00FE1BB3 /* Main.storyboard */; };
 		E1C437E1201F3B6C00FE1BB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1C437E0201F3B6C00FE1BB3 /* Assets.xcassets */; };
 		E1C437E4201F3B6C00FE1BB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C437E2201F3B6C00FE1BB3 /* LaunchScreen.storyboard */; };
@@ -26,6 +26,15 @@
 		E1FFF23120208DF700A602E6 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FFF23020208DF700A602E6 /* Chameleon.framework */; };
 		E1FFF2362020920400A602E6 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FFF2342020920400A602E6 /* Reachability.framework */; };
 		E1FFF2392020921400A602E6 /* SwiftMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FFF2382020921400A602E6 /* SwiftMessages.framework */; };
+		E1FFF23C2020A4AD00A602E6 /* AnimatedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFF23B2020A4AD00A602E6 /* AnimatedText.swift */; };
+		E1FFF2412020D19800A602E6 /* D.json in Resources */ = {isa = PBXBuildFile; fileRef = E1FFF23D2020D19800A602E6 /* D.json */; };
+		E1FFF2422020D19800A602E6 /* M.json in Resources */ = {isa = PBXBuildFile; fileRef = E1FFF23E2020D19800A602E6 /* M.json */; };
+		E1FFF2432020D19800A602E6 /* B.json in Resources */ = {isa = PBXBuildFile; fileRef = E1FFF23F2020D19800A602E6 /* B.json */; };
+		E1FFF2442020D19800A602E6 /* N.json in Resources */ = {isa = PBXBuildFile; fileRef = E1FFF2402020D19800A602E6 /* N.json */; };
+		E1FFF24B2020E0CF00A602E6 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFF24A2020E0CF00A602E6 /* Identifiable.swift */; };
+		E1FFF24E2020E2C900A602E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1FFF24D2020E2C900A602E6 /* Localizable.strings */; };
+		E1FFF2512021125000A602E6 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFF2502021125000A602E6 /* HomeCollectionViewController.swift */; };
+		E1FFF254202112A200A602E6 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFF253202112A200A602E6 /* MovieCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +66,7 @@
 		C9297E73FB89635ADB56009A /* Pods-NMDbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMDbUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NMDbUITests/Pods-NMDbUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E1C437D6201F3B6C00FE1BB3 /* NMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C437D9201F3B6C00FE1BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1C437DB201F3B6C00FE1BB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E1C437DB201F3B6C00FE1BB3 /* LauchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchViewController.swift; sourceTree = "<group>"; };
 		E1C437DE201F3B6C00FE1BB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1C437E0201F3B6C00FE1BB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1C437E3201F3B6C00FE1BB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,6 +86,15 @@
 		E1FFF23020208DF700A602E6 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		E1FFF2342020920400A602E6 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		E1FFF2382020921400A602E6 /* SwiftMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftMessages.framework; path = Carthage/Build/iOS/SwiftMessages.framework; sourceTree = "<group>"; };
+		E1FFF23B2020A4AD00A602E6 /* AnimatedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedText.swift; sourceTree = "<group>"; };
+		E1FFF23D2020D19800A602E6 /* D.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = D.json; sourceTree = "<group>"; };
+		E1FFF23E2020D19800A602E6 /* M.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = M.json; sourceTree = "<group>"; };
+		E1FFF23F2020D19800A602E6 /* B.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = B.json; sourceTree = "<group>"; };
+		E1FFF2402020D19800A602E6 /* N.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = N.json; sourceTree = "<group>"; };
+		E1FFF24A2020E0CF00A602E6 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		E1FFF24D2020E2C900A602E6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		E1FFF2502021125000A602E6 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		E1FFF253202112A200A602E6 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,8 +222,10 @@
 		E1C43808201F3B8200FE1BB3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1FFF2452020D19C00A602E6 /* Animations */,
 				E1C43809201F3B9200FE1BB3 /* Assets */,
 				E1C4380A201F3BA700FE1BB3 /* Storyboards */,
+				E1FFF24C2020E2AA00A602E6 /* Strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -248,6 +268,8 @@
 		E1C43813201F875500FE1BB3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E1FFF23A2020A49A00A602E6 /* Components */,
+				E1FFF2522021128100A602E6 /* Movie */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,7 +277,9 @@
 		E1C43814201F875A00FE1BB3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E1C437DB201F3B6C00FE1BB3 /* ViewController.swift */,
+				E1FFF2472020DD6F00A602E6 /* Lauch */,
+				E1FFF2462020DD6600A602E6 /* Home */,
+				E1FFF24F2020EDEA00A602E6 /* Details */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -277,6 +301,7 @@
 		E1C43817201F877200FE1BB3 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
+				E1FFF2552021175D00A602E6 /* Movies */,
 				E1C43819201F8DE600FE1BB3 /* Network */,
 			);
 			path = Provider;
@@ -334,9 +359,75 @@
 		E1FFF22C202085E100A602E6 /* Extensions and Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				E1FFF24A2020E0CF00A602E6 /* Identifiable.swift */,
 				E1FFF22D2020860E00A602E6 /* LocalizableStringExtension.swift */,
 			);
 			path = "Extensions and Protocols";
+			sourceTree = "<group>";
+		};
+		E1FFF23A2020A49A00A602E6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E1FFF23B2020A4AD00A602E6 /* AnimatedText.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E1FFF2452020D19C00A602E6 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				E1FFF2402020D19800A602E6 /* N.json */,
+				E1FFF23E2020D19800A602E6 /* M.json */,
+				E1FFF23D2020D19800A602E6 /* D.json */,
+				E1FFF23F2020D19800A602E6 /* B.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		E1FFF2462020DD6600A602E6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E1FFF2502021125000A602E6 /* HomeCollectionViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E1FFF2472020DD6F00A602E6 /* Lauch */ = {
+			isa = PBXGroup;
+			children = (
+				E1C437DB201F3B6C00FE1BB3 /* LauchViewController.swift */,
+			);
+			path = Lauch;
+			sourceTree = "<group>";
+		};
+		E1FFF24C2020E2AA00A602E6 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				E1FFF24D2020E2C900A602E6 /* Localizable.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		E1FFF24F2020EDEA00A602E6 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		E1FFF2522021128100A602E6 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				E1FFF253202112A200A602E6 /* MovieCollectionViewCell.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		E1FFF2552021175D00A602E6 /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Movies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,8 +549,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1FFF2432020D19800A602E6 /* B.json in Resources */,
+				E1FFF2422020D19800A602E6 /* M.json in Resources */,
 				E1C437E4201F3B6C00FE1BB3 /* LaunchScreen.storyboard in Resources */,
 				E1C437E1201F3B6C00FE1BB3 /* Assets.xcassets in Resources */,
+				E1FFF2442020D19800A602E6 /* N.json in Resources */,
+				E1FFF24E2020E2C900A602E6 /* Localizable.strings in Resources */,
+				E1FFF2412020D19800A602E6 /* D.json in Resources */,
 				E1C437DF201F3B6C00FE1BB3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,11 +664,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-NMDb/Pods-NMDb-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ElasticTransition/ElasticTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/MotionAnimation/MotionAnimation.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ElasticTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -685,13 +783,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1C437DC201F3B6C00FE1BB3 /* ViewController.swift in Sources */,
+				E1C437DC201F3B6C00FE1BB3 /* LauchViewController.swift in Sources */,
 				E1C437DA201F3B6C00FE1BB3 /* AppDelegate.swift in Sources */,
 				E1FFF22E2020860E00A602E6 /* LocalizableStringExtension.swift in Sources */,
+				E1FFF254202112A200A602E6 /* MovieCollectionViewCell.swift in Sources */,
+				E1FFF2512021125000A602E6 /* HomeCollectionViewController.swift in Sources */,
 				E1FFF22A2020859D00A602E6 /* LocalizableStrings.swift in Sources */,
 				E1C43823201F8F8800FE1BB3 /* TechnicalError.swift in Sources */,
 				E1C43821201F8F8800FE1BB3 /* HandleError.swift in Sources */,
 				E1C4381B201F8E0300FE1BB3 /* NetworkProvider.swift in Sources */,
+				E1FFF24B2020E0CF00A602E6 /* Identifiable.swift in Sources */,
+				E1FFF23C2020A4AD00A602E6 /* AnimatedText.swift in Sources */,
 				E1C43822201F8F8800FE1BB3 /* BusinessError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -868,7 +970,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/NMDb/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nucci.NMDb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nucci.nmdb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -890,7 +992,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/NMDb/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nucci.NMDb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nucci.nmdb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

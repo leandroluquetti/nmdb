@@ -6,6 +6,7 @@ target 'NMDb' do
   pod "MotionAnimation", :git => 'https://github.com/nucci/MotionAnimation.git'
   pod "ElasticTransition", :git => 'https://github.com/nucci/ElasticTransition.git', :branch => 'swift4'
   pod "SwiftLint"
+  pod "lottie-ios"
   
   target 'NMDbTests' do
     inherit! :search_paths
