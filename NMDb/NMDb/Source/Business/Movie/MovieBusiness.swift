@@ -1,5 +1,5 @@
 //
-//  DiscoverBusiness.swift
+//  MovieBusiness.swift
 //  NMDb
 //
 //  Created by Gian Nucci on 30/01/18.
@@ -8,19 +8,21 @@
 
 import Foundation
 
-typealias DiscoverUICallback = (@escaping () throws -> MovieDiscover?) -> Void
+typealias MovieDiscoverUICallback = (@escaping () throws -> MovieDiscover?) -> Void
+typealias MovieUICallback = (@escaping () throws -> Movie?) -> Void
 
-class DiscoverBusiness {
+class MovieBusiness {
 
-    private var provider: DiscoverApiProtocol
+    private var provider: MovieApiProtocol
     
     private var discover: MovieDiscover?
     
-    init(withProvider aProvider: DiscoverApiProtocol = DiscoverApiProvider()) {
+    init(withProvider aProvider: MovieApiProtocol = MovieApiProvider()) {
         self.provider = aProvider
     }
     
-    func discoverMovies(refresh: Bool = false, _ completion: @escaping DiscoverUICallback) {
+    func discoverMovies(refresh: Bool = false,
+                        _ completion: @escaping MovieDiscoverUICallback) {
         
         do {
             var discoverRequest = DiscoverRequest()
@@ -70,6 +72,37 @@ class DiscoverBusiness {
         } catch {
             completion {
                 throw BusinessError.parse("Error parsing request parameters: DiscoverRequest")
+            }
+        }
+    }
+    
+    func fetchMovie(identifier: Int,
+                    _ completion: @escaping MovieUICallback) {
+        do {
+            let movieRequest = MovieRequest()
+            let request = try JSONEncoder().encode(movieRequest)
+            let parameters: NetworkParameters = (nil, request)
+            
+            provider.fetchMovie(withParameters: parameters,
+                                movieId: String(identifier), { (result) in
+                do {
+                    guard let movieResult = try result() else {
+                        throw BusinessError.parse("Could not parse response: FetchMovies")
+                    }
+                    
+                    guard let movie = try? JSONDecoder().decode(Movie.self, from: movieResult) else {
+                        throw BusinessError.parse("Could not parse response: FetchMovies")
+                    }
+                    
+                    completion { movie }
+                    
+                } catch {
+                    completion { throw error }
+                }
+            })
+        } catch {
+            completion {
+                throw BusinessError.parse("Error parsing request parameters: MovieRequest")
             }
         }
     }

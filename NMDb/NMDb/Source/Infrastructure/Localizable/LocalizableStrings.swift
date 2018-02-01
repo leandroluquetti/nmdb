@@ -14,6 +14,7 @@ enum LocalizableStrings: String {
     case mainTitle
     
     // Error Handling
+    case genericError
     case fatalError
     case unexpectedError
     case businessError

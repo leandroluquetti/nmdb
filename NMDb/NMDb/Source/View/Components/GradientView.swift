@@ -47,7 +47,10 @@ class GradientView: UIView {
     /// - parameter colors:     CGColor array of colors
     /// - parameter startPoint: CGPoint start point
     /// - parameter endPoint:   CGPoint end point
-    func setGradientBackground(_ colors: [UIColor], startPoint: CGPoint = CGPoint(x: 0.5, y: 0), endPoint: CGPoint = CGPoint(x: 0.5, y: 1), fullScreenRelated: Bool = false) {
+    func setGradientBackground(_ colors: [UIColor],
+                               startPoint: CGPoint = CGPoint(x: 0.5, y: 0),
+                               endPoint: CGPoint = CGPoint(x: 0.5, y: 1),
+                               fullScreenRelated: Bool = false) {
         
         if fullScreenRelated {
             let gradientFullScreen = CAGradientLayer()

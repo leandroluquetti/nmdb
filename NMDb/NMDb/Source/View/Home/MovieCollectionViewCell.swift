@@ -35,7 +35,7 @@ class MovieCollectionViewCell: UICollectionViewCell, Identifiable {
         self.posterImage.contentMode = .center
         
         if let posterPath = poster {
-            let url = URL(string: ApiProvider.imageBaseUrl + posterPath)
+            let url = URL(string: ApiProvider.posterBaseUrl + posterPath)
             
             self.posterImage.kf.setImage(with: url,
                                          placeholder: placeholder,
@@ -50,7 +50,6 @@ class MovieCollectionViewCell: UICollectionViewCell, Identifiable {
         
         if let title = self.title {
             titleLabel.text = title
-            titleLabel.sizeToFit()
         }
         
         if let release = self.release {

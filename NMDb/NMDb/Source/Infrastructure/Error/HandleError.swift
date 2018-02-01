@@ -25,6 +25,9 @@ struct HandleError {
             handleBusiness(error: businessError)
         } else if let technicalError = error as? TechnicalError {
             handleTechnical(error: technicalError)
+        } else {
+            let messageError = LocalizableStrings.genericError.localize()
+            showStatusLine(message: messageError)
         }
     }
     

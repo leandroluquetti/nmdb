@@ -31,7 +31,6 @@ struct DiscoverRequest: Codable {
         self.primaryReleaseGreaterThan = primaryReleaseGreaterThan
         self.primaryReleaseLowerThan = primaryReleaseLowerThan
         self.page = page
-        
     }
     
     enum CodingKeys: String, CodingKey {

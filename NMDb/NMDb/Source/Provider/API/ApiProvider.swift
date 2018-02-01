@@ -33,7 +33,11 @@ struct ApiProvider {
         return "https://api.themoviedb.org/" + apiVersion
     }
     
-    static var imageBaseUrl: String {
+    static var posterBaseUrl: String {
         return "https://image.tmdb.org/t/p/w500"
+    }
+    
+    static var bannerBaseUrl: String {
+        return "https://image.tmdb.org/t/p/original"
     }
 }

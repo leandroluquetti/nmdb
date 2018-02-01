@@ -10,13 +10,13 @@ import UIKit
 
 class HomeManager: BaseManager {
 
-    /// Apps Business
-    private lazy var business: DiscoverBusiness = {
-        return DiscoverBusiness()
+    /// Movie Business
+    private lazy var business: MovieBusiness = {
+        return MovieBusiness()
     }()
     
     func discoverMovies(refresh: Bool = false,
-                        _ completion: @escaping DiscoverUICallback) {
+                        _ completion: @escaping MovieDiscoverUICallback) {
         addOperation {
             self.business.discoverMovies(refresh: refresh, { (discover) in
                 OperationQueue.main.addOperation {

@@ -22,6 +22,8 @@ class HomeCollectionViewController: UICollectionViewController, Identifiable {
         return HomeManager()
     }()
     
+    private var selectedMovieId: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,7 +47,10 @@ class HomeCollectionViewController: UICollectionViewController, Identifiable {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        segue.destination.modalPresentationStyle = .custom
+        if segue.identifier == DetailsViewController.segueIdentifier {
+            guard let detailsViewController = segue.destination as? DetailsViewController else { return }
+            detailsViewController.movieId = self.selectedMovieId
+        }
     }
 
 }
@@ -85,6 +90,8 @@ extension HomeCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
+        guard let movie = movies?[indexPath.row] else { return }
+        selectedMovieId = movie.identifier
         performSegue(withIdentifier: DetailsViewController.segueIdentifier,
                      sender: self)
     }
