@@ -48,6 +48,6 @@ class LauchViewController: UIViewController, Identifiable {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         segue.destination.transitioningDelegate = transition
         segue.destination.modalPresentationStyle = .custom
-        segue.destination.view.backgroundColor = UIColor(named: "MainColor")
+        segue.destination.view.backgroundColor = UIColor.darkGray
     }
 }

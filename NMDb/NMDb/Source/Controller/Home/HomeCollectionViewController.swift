@@ -10,77 +10,103 @@ import UIKit
 
 class HomeCollectionViewController: UICollectionViewController, Identifiable {
 
+    private var movies: [Movie]? {
+        didSet {
+            if movies != nil {
+                collectionView?.reloadData()
+            }
+        }
+    }
+    
+    private lazy var manager = {
+        return HomeManager()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self,
-                                      forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        loadMovies()
+    }
+    
+    fileprivate func loadMovies() {
+        manager.discoverMovies { [weak self] (result) in
+            guard let _self = self else { return }
+            
+            do {
+                guard let discover = try result() else { return }
+                _self.movies = discover.results
+                
+            } catch {
+                HandleError.handle(error: error)
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 0
+        segue.destination.modalPresentationStyle = .custom
     }
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
-    }
+}
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reuseIdentifier,
-                                                      for: indexPath)
+// MARK: - UICollectionViewDataSource && UICollectionViewDelegate
+extension HomeCollectionViewController {
     
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView,
+                                 numberOfItemsInSection section: Int) -> Int {
+        return movies?.count ?? 0
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView,
+                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell: MovieCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+        guard let movie = movies?[indexPath.row] else { return cell }
+        cell.setup(title: movie.title!, url: movie.posterPath, release: movie.releaseDate)
+        
+        if indexPath.row >= (movies?.count ?? 0)-1 {
+            loadMovies()
+        }
+
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    override func collectionView(_ collectionView: UICollectionView,
+                                 didEndDisplaying cell: UICollectionViewCell,
+                                 forItemAt indexPath: IndexPath) {
+        guard let movieCell = cell as? MovieCollectionViewCell else { return }
+        movieCell.posterImage.kf.cancelDownloadTask()
     }
-    */
+    
+    override func collectionView(_ collectionView: UICollectionView,
+                                 didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: DetailsViewController.segueIdentifier,
+                     sender: self)
+    }
+}
 
+// MARK: - UICollectionViewDelegateFlowLayout
+extension HomeCollectionViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let margin = 10
+        
+        var width = (UIScreen.main.bounds.width - CGFloat(2*margin))/3
+        
+        if UIDevice.current.orientation.isLandscape {
+            width = (UIScreen.main.bounds.width - CGFloat(4*margin))/5
+        }
+        
+        let size = CGSize(width: width,
+                          height: (width*1.41) + 30)
+        
+        return size
+    }
 }
