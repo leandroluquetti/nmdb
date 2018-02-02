@@ -56,9 +56,9 @@ class MovieApiProvider: MovieApiProtocol {
     ///   - parameters: api parameters
     ///   - movieId: movie identifier
     ///   - completion: completion callback
-    func fetchMovie(withParameters parameters: NetworkParameters,
-                    movieId: String,
-                    _ completion: @escaping MovieCallback) {
+    func movie(withParameters parameters: NetworkParameters,
+               movieId: String,
+               _ completion: @escaping MovieCallback) {
         
         _ = ApiProvider.sharedProvider.GET("\(movieEndpoint)\(movieId)",
                                            parameters: parameters,
@@ -67,6 +67,26 @@ class MovieApiProvider: MovieApiProtocol {
             completion {
                 return try result()
             }
+        })
+    }
+    
+    /// Fetch Movie Details
+    ///
+    /// - Parameters:
+    ///   - parameters: api parameters
+    ///   - movieId: movie identifier
+    ///   - completion: completion callback
+    func credits(withParameters parameters: NetworkParameters,
+                 movieId: String,
+                 _ completion: @escaping MovieCallback) {
+        
+        _ = ApiProvider.sharedProvider.GET("\(movieEndpoint)\(movieId)/credits",
+                                          parameters: parameters,
+                                          header: nil,
+                                          completion: { (result) in
+                completion {
+                    return try result()
+                }
         })
     }
         

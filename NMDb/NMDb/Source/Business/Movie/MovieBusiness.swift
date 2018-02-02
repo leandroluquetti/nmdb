@@ -10,6 +10,8 @@ import Foundation
 
 typealias MovieListUICallback = (@escaping () throws -> MovieList?) -> Void
 typealias MovieUICallback = (@escaping () throws -> Movie?) -> Void
+typealias CreditsUICallback = (@escaping () throws -> Credits?) -> Void
+
 
 class MovieBusiness {
 
@@ -140,15 +142,15 @@ class MovieBusiness {
     /// - Parameters:
     ///   - identifier: movie identifier
     ///   - completion: completion callback
-    func fetchMovie(identifier: Int,
-                    _ completion: @escaping MovieUICallback) {
+    func movie(identifier: Int,
+               _ completion: @escaping MovieUICallback) {
         do {
             let movieRequest = MovieRequest()
             let request = try JSONEncoder().encode(movieRequest)
             let parameters: NetworkParameters = (nil, request)
             
-            provider.fetchMovie(withParameters: parameters,
-                                movieId: String(identifier), { (result) in
+            provider.movie(withParameters: parameters,
+                           movieId: String(identifier), { (result) in
                 do {
                     guard let movieResult = try result() else {
                         throw BusinessError.parse("Could not parse response: FetchMovies")
@@ -159,6 +161,42 @@ class MovieBusiness {
                     }
                     
                     completion { movie }
+                    
+                } catch {
+                    completion { throw error }
+                }
+            })
+        } catch {
+            completion {
+                throw BusinessError.parse("Error parsing request parameters: MovieRequest")
+            }
+        }
+    }
+    
+    /// Movie Credits Business rules
+    ///
+    /// - Parameters:
+    ///   - identifier: movie identifier
+    ///   - completion: completion callback
+    func credits(identifier: Int,
+                 _ completion: @escaping CreditsUICallback) {
+        do {
+            let movieRequest = MovieRequest()
+            let request = try JSONEncoder().encode(movieRequest)
+            let parameters: NetworkParameters = (nil, request)
+            
+            provider.credits(withParameters: parameters,
+                             movieId: String(identifier), { (result) in
+                do {
+                    guard let creditsResult = try result() else {
+                        throw BusinessError.parse("Could not parse response: FetchMovies")
+                    }
+                    
+                    guard let credits = try? JSONDecoder().decode(Credits.self, from: creditsResult) else {
+                        throw BusinessError.parse("Could not parse response: FetchMovies")
+                    }
+                    
+                    completion { credits }
                     
                 } catch {
                     completion { throw error }

@@ -15,10 +15,31 @@ class DetailsManager: BaseManager {
         return MovieBusiness()
     }()
     
+    /// Movie Details Operation manager
+    ///
+    /// - Parameters:
+    ///   - identifier: movie id
+    ///   - completion: completion callback
     func fetchMovie(identifier: Int,
                     _ completion: @escaping MovieUICallback) {
         addOperation {
-            self.business.fetchMovie(identifier: identifier, { (movie) in
+            self.business.movie(identifier: identifier, { (movie) in
+                OperationQueue.main.addOperation {
+                    completion(movie)
+                }
+            })
+        }
+    }
+    
+    /// Credits Operation Manager
+    ///
+    /// - Parameters:
+    ///   - identifier: movie id
+    ///   - completion: completion callback
+    func fetchCredits(identifier: Int,
+                      _ completion: @escaping CreditsUICallback) {
+        addOperation {
+            self.business.credits(identifier: identifier, { (movie) in
                 OperationQueue.main.addOperation {
                     completion(movie)
                 }

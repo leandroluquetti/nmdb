@@ -38,8 +38,13 @@ struct ApiProvider {
         return "https://image.tmdb.org/t/p/w500"
     }
     
-    /// poster banner URL
+    /// poster base URL
     static var bannerBaseUrl: String {
         return "https://image.tmdb.org/t/p/original"
+    }
+    
+    /// profile base URL
+    static var profileBaseUrl: String {
+        return "https://image.tmdb.org/t/p/w185"
     }
 }

@@ -33,6 +33,11 @@
 		E1F1E3522023B6010024DBB8 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1E3512023B6010024DBB8 /* Genre.swift */; };
 		E1F1E3552023C88B0024DBB8 /* MovieListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1E3542023C88B0024DBB8 /* MovieListRequest.swift */; };
 		E1F1E3572023DCB70024DBB8 /* MovieType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1E3562023DCB70024DBB8 /* MovieType.swift */; };
+		E1F1E3592023F8810024DBB8 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1E3582023F8810024DBB8 /* Credits.swift */; };
+		E1F1E35B2023F89B0024DBB8 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1E35A2023F89B0024DBB8 /* Cast.swift */; };
+		E1F1E35D2023F8B20024DBB8 /* Crew.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1E35C2023F8B20024DBB8 /* Crew.swift */; };
+		E1F1E35F2023FAF00024DBB8 /* CreditsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1E35E2023FAF00024DBB8 /* CreditsCollectionViewCell.swift */; };
+		E1F1E3612023FEB60024DBB8 /* CreditsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1E3602023FEB60024DBB8 /* CreditsCollectionViewController.swift */; };
 		E1FFF22A2020859D00A602E6 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFF2292020859D00A602E6 /* LocalizableStrings.swift */; };
 		E1FFF22E2020860E00A602E6 /* LocalizableStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFF22D2020860E00A602E6 /* LocalizableStringExtension.swift */; };
 		E1FFF23120208DF700A602E6 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FFF23020208DF700A602E6 /* Chameleon.framework */; };
@@ -113,6 +118,11 @@
 		E1F1E3512023B6010024DBB8 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		E1F1E3542023C88B0024DBB8 /* MovieListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRequest.swift; sourceTree = "<group>"; };
 		E1F1E3562023DCB70024DBB8 /* MovieType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieType.swift; sourceTree = "<group>"; };
+		E1F1E3582023F8810024DBB8 /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
+		E1F1E35A2023F89B0024DBB8 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
+		E1F1E35C2023F8B20024DBB8 /* Crew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crew.swift; sourceTree = "<group>"; };
+		E1F1E35E2023FAF00024DBB8 /* CreditsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsCollectionViewCell.swift; sourceTree = "<group>"; };
+		E1F1E3602023FEB60024DBB8 /* CreditsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsCollectionViewController.swift; sourceTree = "<group>"; };
 		E1FFF2292020859D00A602E6 /* LocalizableStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 		E1FFF22D2020860E00A602E6 /* LocalizableStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableStringExtension.swift; sourceTree = "<group>"; };
 		E1FFF23020208DF700A602E6 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
@@ -401,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				E1F1E34F202393CC0024DBB8 /* DetailsView.swift */,
+				E1F1E35E2023FAF00024DBB8 /* CreditsCollectionViewCell.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -481,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				E1F1E34520237B270024DBB8 /* DetailsViewController.swift */,
+				E1F1E3602023FEB60024DBB8 /* CreditsCollectionViewController.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -535,6 +547,9 @@
 				E1FFF261202120A300A602E6 /* MovieList.swift */,
 				E1FFF2692022252600A602E6 /* Movie.swift */,
 				E1F1E3512023B6010024DBB8 /* Genre.swift */,
+				E1F1E3582023F8810024DBB8 /* Credits.swift */,
+				E1F1E35A2023F89B0024DBB8 /* Cast.swift */,
+				E1F1E35C2023F8B20024DBB8 /* Crew.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -910,6 +925,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F1E35F2023FAF00024DBB8 /* CreditsCollectionViewCell.swift in Sources */,
 				E1FFF26A2022252600A602E6 /* Movie.swift in Sources */,
 				E1C437DC201F3B6C00FE1BB3 /* LauchViewController.swift in Sources */,
 				E1C437DA201F3B6C00FE1BB3 /* AppDelegate.swift in Sources */,
@@ -918,6 +934,7 @@
 				E1F1E34820238A6E0024DBB8 /* MovieRequest.swift in Sources */,
 				E1FFF22E2020860E00A602E6 /* LocalizableStringExtension.swift in Sources */,
 				E1FFF254202112A200A602E6 /* MovieCollectionViewCell.swift in Sources */,
+				E1F1E35D2023F8B20024DBB8 /* Crew.swift in Sources */,
 				E1FFF2702022326700A602E6 /* BaseManager.swift in Sources */,
 				E1FFF2512021125000A602E6 /* HomeCollectionViewController.swift in Sources */,
 				E1F1E3522023B6010024DBB8 /* Genre.swift in Sources */,
@@ -929,12 +946,15 @@
 				E1F1E3572023DCB70024DBB8 /* MovieType.swift in Sources */,
 				E1F1E350202393CC0024DBB8 /* DetailsView.swift in Sources */,
 				E1F1E34D202392690024DBB8 /* ViewCustomizable.swift in Sources */,
+				E1F1E35B2023F89B0024DBB8 /* Cast.swift in Sources */,
 				E1FFF25C20211B7200A602E6 /* MovieApiProtocol.swift in Sources */,
 				E1F1E34B20238EA30024DBB8 /* DetailsManager.swift in Sources */,
 				E1FFF262202120A300A602E6 /* MovieList.swift in Sources */,
+				E1F1E3592023F8810024DBB8 /* Credits.swift in Sources */,
 				E1FFF24B2020E0CF00A602E6 /* Identifiable.swift in Sources */,
 				E1FFF25F20211FE200A602E6 /* MovieBusiness.swift in Sources */,
 				E1FFF23C2020A4AD00A602E6 /* AnimatedText.swift in Sources */,
+				E1F1E3612023FEB60024DBB8 /* CreditsCollectionViewController.swift in Sources */,
 				E1FFF26D2022325300A602E6 /* HomeManager.swift in Sources */,
 				E1F1E34620237B270024DBB8 /* DetailsViewController.swift in Sources */,
 				E16C0C9420226FF8002FF97B /* CollectionViewExtension.swift in Sources */,

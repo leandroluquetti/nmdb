@@ -35,8 +35,18 @@ protocol MovieApiProtocol {
     ///   - parameters: api parameters
     ///   - movieId: movie identifier
     ///   - completion: completion callback
-    func fetchMovie(withParameters parameters: NetworkParameters,
-                    movieId: String,
-                    _ completion: @escaping MovieCallback)
+    func movie(withParameters parameters: NetworkParameters,
+               movieId: String,
+               _ completion: @escaping MovieCallback)
+    
+    /// Fetch Movie Details
+    ///
+    /// - Parameters:
+    ///   - parameters: api parameters
+    ///   - movieId: movie identifier
+    ///   - completion: completion callback
+    func credits(withParameters parameters: NetworkParameters,
+                 movieId: String,
+                 _ completion: @escaping MovieCallback)
     
 }
