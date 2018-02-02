@@ -2,8 +2,7 @@
 
 Test Application developed using [TMDb API](https://developers.themoviedb.org)
 
-![](screenshots/ss01.png =300x)
-![](screenshots/ss03.png =300x)
+<img src="screenshots/ss01.png?raw=true" width="250"> <img src="screenshots/ss03.png?raw=true" width="250">
 
 ## Requirements
 
