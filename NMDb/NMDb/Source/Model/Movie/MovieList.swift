@@ -1,5 +1,5 @@
 //
-//  MovieDiscover.swift
+//  MovieList.swift
 //  NMDb
 //
 //  Created by Gian Nucci on 30/01/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieDiscover: Codable {
+struct MovieList: Codable {
 
     var page: Int?
     var totalResults: Int?

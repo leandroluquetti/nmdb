@@ -19,7 +19,6 @@ class DetailsView: UIView {
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
     func fillScreen(movie: Movie) {
         loadBanner(url: movie.backdropPath)
         loadPoster(url: movie.posterPath)

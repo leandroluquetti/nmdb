@@ -15,10 +15,31 @@ class HomeManager: BaseManager {
         return MovieBusiness()
     }()
     
-    func discoverMovies(refresh: Bool = false,
-                        _ completion: @escaping MovieDiscoverUICallback) {
+    /// Upcoming Movies Operaion manager
+    ///
+    /// - Parameters:
+    ///   - refresh: needs to refresh
+    ///   - completion: completion callback
+    func upcomingMovies(refresh: Bool = false,
+                        _ completion: @escaping MovieListUICallback) {
         addOperation {
-            self.business.discoverMovies(refresh: refresh, { (discover) in
+            self.business.upcomingMovies(refresh: refresh, { (discover) in
+                OperationQueue.main.addOperation {
+                    completion(discover)
+                }
+            })
+        }
+    }
+    
+    /// Popular Movies Operaton manager
+    ///
+    /// - Parameters:
+    ///   - refresh: needs to refresh
+    ///   - completion: completion callback
+    func popularMovies(refresh: Bool = false,
+                       _ completion: @escaping MovieListUICallback) {
+        addOperation {
+            self.business.popularMovies(refresh: refresh, { (discover) in
                 OperationQueue.main.addOperation {
                     completion(discover)
                 }

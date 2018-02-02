@@ -12,6 +12,8 @@ enum LocalizableStrings: String {
     
     // Strings
     case mainTitle
+    case upcomingMovies
+    case popularMovies
     
     // Error Handling
     case genericError

@@ -10,13 +10,47 @@ import UIKit
 
 class HomeCollectionViewController: UICollectionViewController, Identifiable {
 
+    private var movieType: MovieType = .upcoming
+    
     private var movies: [Movie]? {
+        get {
+            switch movieType {
+            case .upcoming: return upcomingMovies
+            case .popular: return popularMovies
+            }
+        }
+        set {
+            switch movieType {
+            case .upcoming: upcomingMovies = newValue
+            case .popular: popularMovies = newValue
+            }
+        }
+    }
+    
+    private var upcomingMovies: [Movie]? {
         didSet {
-            if movies != nil {
+            if upcomingMovies != nil {
                 collectionView?.reloadData()
             }
         }
     }
+    
+    private var popularMovies: [Movie]? {
+        didSet {
+            if popularMovies != nil {
+                collectionView?.reloadData()
+            }
+        }
+    }
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self,
+                                 action: #selector(HomeCollectionViewController.refresh),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = .white
+        return refreshControl
+    }()
     
     private lazy var manager = {
         return HomeManager()
@@ -26,22 +60,47 @@ class HomeCollectionViewController: UICollectionViewController, Identifiable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        collectionView?.refreshControl = refreshControl
         loadMovies()
     }
     
-    fileprivate func loadMovies() {
-        manager.discoverMovies { [weak self] (result) in
+    fileprivate func loadMovies(refresh: Bool = false) {
+        switch movieType {
+        case .upcoming: loadUpcoming(refresh: refresh)
+        case .popular: loadPopular(refresh: refresh)
+        }
+    }
+    
+    private func loadUpcoming(refresh: Bool) {
+        manager.upcomingMovies(refresh: refresh) { [weak self] (result) in
             guard let _self = self else { return }
             
             do {
-                guard let discover = try result() else { return }
-                _self.movies = discover.results
-                
+                guard let movieList = try result() else { return }
+                _self.upcomingMovies = movieList.results
+                _self.refreshControl.endRefreshing()
             } catch {
                 HandleError.handle(error: error)
             }
         }
+    }
+    
+    private func loadPopular(refresh: Bool) {
+        manager.popularMovies(refresh: refresh) { [weak self] (result) in
+            guard let _self = self else { return }
+            
+            do {
+                guard let movieList = try result() else { return }
+                _self.popularMovies = movieList.results
+                _self.refreshControl.endRefreshing()
+            } catch {
+                HandleError.handle(error: error)
+            }
+        }
+    }
+    
+    @objc private func refresh() {
+        loadMovies(refresh: true)
     }
 
     // MARK: - Navigation
@@ -52,7 +111,27 @@ class HomeCollectionViewController: UICollectionViewController, Identifiable {
             detailsViewController.movieId = self.selectedMovieId
         }
     }
+    
+    // MARK: - Actions
 
+    @IBAction func movieTypeChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            movieType = .upcoming
+            title = LocalizableStrings.upcomingMovies.localize()
+        } else {
+            movieType = .popular
+            title = LocalizableStrings.popularMovies.localize()
+        }
+        collectionView?.reloadData()
+        
+        if movies?.count ?? 0 > 0 {
+            collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0),
+                                         at: .top,
+                                         animated: false)
+        } else {
+            loadMovies(refresh: true)
+        }
+    }
 }
 
 // MARK: - UICollectionViewDataSource && UICollectionViewDelegate
