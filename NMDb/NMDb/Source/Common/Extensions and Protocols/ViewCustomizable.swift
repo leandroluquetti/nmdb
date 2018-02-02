@@ -19,7 +19,7 @@ protocol ViewCustomizable: class {
 extension ViewCustomizable where Self : UIViewController {
     
     var customView: CustomView {
-        guard let customView = self.view as? CustomView else { fatalError(LocalizableStrings.fatalError.localize()) }
+        guard let customView = self.view as? CustomView else { fatalError("Could not cast Custom View") }
         return customView
     }
 }

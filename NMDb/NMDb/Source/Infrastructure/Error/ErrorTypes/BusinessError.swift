@@ -9,6 +9,5 @@
 enum BusinessError: Error {
     case parse(String)
     case invalidValue
-    case invalidDictionaryKey(String)
     case offlineMode
 }

@@ -6,10 +6,8 @@
 //  Copyright © 2018 nucci. All rights reserved.
 //
 
-enum TechnicalError: Error {
+enum ApiError: Error {
     case parse(String)
     case httpError(Int)
-    case requestError
     case invalidURL
-    case notFound
 }

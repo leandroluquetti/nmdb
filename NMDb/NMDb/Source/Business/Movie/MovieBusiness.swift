@@ -7,11 +7,11 @@
 //
 
 import Foundation
+import Reachability
 
 typealias MovieListUICallback = (@escaping () throws -> MovieList?) -> Void
 typealias MovieUICallback = (@escaping () throws -> Movie?) -> Void
 typealias CreditsUICallback = (@escaping () throws -> Credits?) -> Void
-
 
 class MovieBusiness {
 
@@ -30,6 +30,11 @@ class MovieBusiness {
     ///   - completion: MovieListCallback
     func upcomingMovies(refresh: Bool = false,
                         _ completion: @escaping MovieListUICallback) {
+        
+        guard Reachability.isConnected else {
+            completion { throw BusinessError.offlineMode }
+            return
+        }
         
         if refresh {
             self.upcomingList = nil
@@ -54,11 +59,11 @@ class MovieBusiness {
                     guard let _self = self else { return }
                     
                     guard let upcomingResult = try result() else {
-                        throw BusinessError.parse("Could not parse response: DiscoverMovies")
+                        throw BusinessError.parse("Could not parse response Data: MovieBusiness.upcomingMovies")
                     }
                     
                     guard let upcomingList = try? JSONDecoder().decode(MovieList.self, from: upcomingResult) else {
-                        throw BusinessError.parse("Could not parse response: DiscoverMovies")
+                        throw BusinessError.parse("Could not parse response Json into Object: MovieBusiness.upcomingMovies")
                     }
                     
                     if _self.upcomingList == nil {
@@ -75,7 +80,7 @@ class MovieBusiness {
             })
         } catch {
             completion {
-                throw BusinessError.parse("Error parsing request parameters: DiscoverRequest")
+                throw BusinessError.parse("Error parsing request parameters: MovieBusiness.upcomingMovies")
             }
         }
     }
@@ -87,6 +92,11 @@ class MovieBusiness {
     ///   - completion: completion callback
     func popularMovies(refresh: Bool = false,
                        _ completion: @escaping MovieListUICallback) {
+        
+        guard Reachability.isConnected else {
+            completion { throw BusinessError.offlineMode }
+            return
+        }
         
         if refresh {
             self.popularList = nil
@@ -111,11 +121,11 @@ class MovieBusiness {
                     guard let _self = self else { return }
                     
                     guard let popularResult = try result() else {
-                        throw BusinessError.parse("Could not parse response: DiscoverMovies")
+                        throw BusinessError.parse("Could not parse response Data: MovieBusiness.popular")
                     }
                     
                     guard let popularList = try? JSONDecoder().decode(MovieList.self, from: popularResult) else {
-                        throw BusinessError.parse("Could not parse response: DiscoverMovies")
+                        throw BusinessError.parse("Could not parse response Json into Object: MovieBusiness.popularMovies")
                     }
                     
                     if _self.popularList == nil {
@@ -132,7 +142,7 @@ class MovieBusiness {
             })
         } catch {
             completion {
-                throw BusinessError.parse("Error parsing request parameters: DiscoverRequest")
+                throw BusinessError.parse("Error parsing request parameters: MovieBusiness.popularMovies")
             }
         }
     }
@@ -144,6 +154,12 @@ class MovieBusiness {
     ///   - completion: completion callback
     func movie(identifier: Int,
                _ completion: @escaping MovieUICallback) {
+        
+        guard Reachability.isConnected else {
+            completion { throw BusinessError.offlineMode }
+            return
+        }
+        
         do {
             let movieRequest = MovieRequest()
             let request = try JSONEncoder().encode(movieRequest)
@@ -153,11 +169,11 @@ class MovieBusiness {
                            movieId: String(identifier), { (result) in
                 do {
                     guard let movieResult = try result() else {
-                        throw BusinessError.parse("Could not parse response: FetchMovies")
+                        throw BusinessError.parse("Could not parse response Data: MovieBusiness.movie")
                     }
                     
                     guard let movie = try? JSONDecoder().decode(Movie.self, from: movieResult) else {
-                        throw BusinessError.parse("Could not parse response: FetchMovies")
+                        throw BusinessError.parse("Could not parse response Json into Object: MovieBusiness.movie")
                     }
                     
                     completion { movie }
@@ -168,7 +184,7 @@ class MovieBusiness {
             })
         } catch {
             completion {
-                throw BusinessError.parse("Error parsing request parameters: MovieRequest")
+                throw BusinessError.parse("Error parsing request parameters: MovieBusiness.movie")
             }
         }
     }
@@ -180,6 +196,12 @@ class MovieBusiness {
     ///   - completion: completion callback
     func credits(identifier: Int,
                  _ completion: @escaping CreditsUICallback) {
+        
+        guard Reachability.isConnected else {
+            completion { throw BusinessError.offlineMode }
+            return
+        }
+        
         do {
             let movieRequest = MovieRequest()
             let request = try JSONEncoder().encode(movieRequest)
@@ -189,11 +211,11 @@ class MovieBusiness {
                              movieId: String(identifier), { (result) in
                 do {
                     guard let creditsResult = try result() else {
-                        throw BusinessError.parse("Could not parse response: FetchMovies")
+                        throw BusinessError.parse("Could not parse response Data: MovieBusiness.credits")
                     }
                     
                     guard let credits = try? JSONDecoder().decode(Credits.self, from: creditsResult) else {
-                        throw BusinessError.parse("Could not parse response: FetchMovies")
+                        throw BusinessError.parse("Could not parse response Json into Object: MovieBusiness.credits")
                     }
                     
                     completion { credits }
@@ -204,7 +226,7 @@ class MovieBusiness {
             })
         } catch {
             completion {
-                throw BusinessError.parse("Error parsing request parameters: MovieRequest")
+                throw BusinessError.parse("Error parsing request parameters: MovieBusiness.credits")
             }
         }
     }

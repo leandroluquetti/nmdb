@@ -23,7 +23,7 @@ struct HandleError {
         
         if let businessError = error as? BusinessError {
             handleBusiness(error: businessError)
-        } else if let technicalError = error as? TechnicalError {
+        } else if let technicalError = error as? ApiError {
             handleTechnical(error: technicalError)
         } else {
             let messageError = LocalizableStrings.genericError.localize()
@@ -40,24 +40,20 @@ struct HandleError {
      - parameter navigationController: Instance of current navigationController
      */
     fileprivate static func handleBusiness(error: BusinessError) {
-        let messageError: String
+        let errorTitle = LocalizableStrings.friendlyErrorTitle.localize()
         
         switch error {
-        case .invalidDictionaryKey(let key):
-            messageError = "\(LocalizableStrings.invalidDictionary.localize()) \(key)"
-            showStatusLine(message: messageError)
-            
-        case .invalidValue:
-            messageError = LocalizableStrings.invalidValue.localize()
-            showStatusLine(message: messageError)
-            
         case .parse(let message):
-            messageError = "\(LocalizableStrings.errorParseData.localize()) - (\(message))"
-            showStatusLine(message: messageError)
-            
+            let log = "\(LocalizableStrings.errorParseData.localize()) - (\(message))"
+            print(log)
+            showDefault(title: errorTitle, description: LocalizableStrings.friendlyError.localize())
         case .offlineMode:
-            messageError = LocalizableStrings.offlineMode.localize()
-            showStatusLine(message: messageError, durantion: 1)
+            let message = LocalizableStrings.offlineMode.localize()
+            showStatusLine(message: message, durantion: 3)
+        case .invalidValue:
+            let log = LocalizableStrings.offlineMode.localize()
+            print(log)
+            showDefault(title: errorTitle, description: LocalizableStrings.friendlyError.localize())
         }
     }
     
@@ -67,30 +63,24 @@ struct HandleError {
      - parameter error:                TechnicalError object
      - parameter navigationController: Instance of current navigationController
      */
-    fileprivate static func handleTechnical(error: TechnicalError) {
-        let errorTitle = LocalizableStrings.technicalError.localize()
+    fileprivate static func handleTechnical(error: ApiError) {
+        let errorTitle = LocalizableStrings.friendlyErrorTitle.localize()
         
         switch error {
         case .httpError(let code):
-            let messageError = "\(LocalizableStrings.httpError.localize()) \(code)"
-            showDefault(title: errorTitle, description: messageError)
+            let log = "\(LocalizableStrings.httpError.localize()) \(code)"
+            print(log)
+            showDefault(title: errorTitle, description: LocalizableStrings.friendlyError.localize())
             
         case .invalidURL:
-            let messageError = LocalizableStrings.invalidURL.localize()
-            showDefault(title: errorTitle, description: messageError)
-
-        case .notFound:
-            let messageError = LocalizableStrings.notFound.localize()
-            showDefault(title: errorTitle, description: messageError)
+            let log = LocalizableStrings.invalidURL.localize()
+            print(log)
+            showDefault(title: errorTitle, description: LocalizableStrings.friendlyError.localize())
             
         case .parse(let message):
-            let messageError = "\(LocalizableStrings.errorOnParseRequest.localize()) - (\(message))"
-            print("Error: \(messageError)")
-            showStatusLine(message: errorTitle, durantion: 1)
-            
-        case .requestError:
-            let messageError = LocalizableStrings.errorOnRequest.localize()
-            showDefault(title: errorTitle, description: messageError)
+            let log = "\(LocalizableStrings.errorParseData.localize()) - (\(message))"
+            print(log)
+            showDefault(title: errorTitle, description: LocalizableStrings.friendlyError.localize())
         }
     }
     
@@ -115,8 +105,8 @@ struct HandleError {
         
         config.presentationContext = .window(windowLevel: UIWindowLevelNormal)
         config.duration = .forever
-        config.dimMode = .gray(interactive: true)
-        config.preferredStatusBarStyle = .lightContent
+        config.dimMode = .none
+        config.preferredStatusBarStyle = .default
         
         // Show
         SwiftMessages.show(config: config, view: view)
@@ -134,7 +124,7 @@ struct HandleError {
         
         config.presentationContext = .window(windowLevel: UIWindowLevelStatusBar)
         config.duration = .seconds(seconds: durantion)
-        config.dimMode = .gray(interactive: true)
+        config.dimMode = .none
         config.preferredStatusBarStyle = .lightContent
         
         // Show

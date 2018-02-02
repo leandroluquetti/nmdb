@@ -10,6 +10,7 @@
 		07FC0FD28188C806AA113D99 /* Pods_NMDbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DD27B0CF45301CD46B2317 /* Pods_NMDbUITests.framework */; };
 		8525F57A2A31C17EDBD3A4A4 /* Pods_NMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CD1737709BBE2F931943F8 /* Pods_NMDbTests.framework */; };
 		989012F0ED02F73A12579AF1 /* Pods_NMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4500E6723B3B91281488395 /* Pods_NMDb.framework */; };
+		E1424AE52024845800C48E65 /* ReachabilityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1424AE42024845800C48E65 /* ReachabilityExtension.swift */; };
 		E16C0C9220226FF0002FF97B /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C0C9120226FF0002FF97B /* ViewExtension.swift */; };
 		E16C0C9420226FF8002FF97B /* CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C0C9320226FF8002FF97B /* CollectionViewExtension.swift */; };
 		E197B1E720233E300069B81C /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E197B1E620233E300069B81C /* Kingfisher.framework */; };
@@ -89,6 +90,7 @@
 		C4500E6723B3B91281488395 /* Pods_NMDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NMDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C680BCC1B7BD383BB4FFD9F2 /* Pods-NMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMDb.release.xcconfig"; path = "Pods/Target Support Files/Pods-NMDb/Pods-NMDb.release.xcconfig"; sourceTree = "<group>"; };
 		C9297E73FB89635ADB56009A /* Pods-NMDbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMDbUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NMDbUITests/Pods-NMDbUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E1424AE42024845800C48E65 /* ReachabilityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityExtension.swift; sourceTree = "<group>"; };
 		E16C0C9120226FF0002FF97B /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		E16C0C9320226FF8002FF97B /* CollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewExtension.swift; sourceTree = "<group>"; };
 		E197B1E620233E300069B81C /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 				E16C0C9120226FF0002FF97B /* ViewExtension.swift */,
 				E1FFF24A2020E0CF00A602E6 /* Identifiable.swift */,
 				E1FFF22D2020860E00A602E6 /* LocalizableStringExtension.swift */,
+				E1424AE42024845800C48E65 /* ReachabilityExtension.swift */,
 			);
 			path = "Extensions and Protocols";
 			sourceTree = "<group>";
@@ -937,6 +940,7 @@
 				E1F1E35D2023F8B20024DBB8 /* Crew.swift in Sources */,
 				E1FFF2702022326700A602E6 /* BaseManager.swift in Sources */,
 				E1FFF2512021125000A602E6 /* HomeCollectionViewController.swift in Sources */,
+				E1424AE52024845800C48E65 /* ReachabilityExtension.swift in Sources */,
 				E1F1E3522023B6010024DBB8 /* Genre.swift in Sources */,
 				E1FFF22A2020859D00A602E6 /* LocalizableStrings.swift in Sources */,
 				E1C43823201F8F8800FE1BB3 /* TechnicalError.swift in Sources */,

@@ -23,7 +23,7 @@ class GradientView: UIView {
     
     var gradientLayer: CAGradientLayer {
         guard let result = layer as? CAGradientLayer else {
-            fatalError(LocalizableStrings.fatalError.localize())
+            fatalError("Could not cast gradient layer")
         }
         return result
     }

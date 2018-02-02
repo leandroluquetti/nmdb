@@ -40,7 +40,9 @@ class CreditsCollectionViewController: UICollectionViewController, Identifiable 
             guard let _self = self else { return }
             
             do {
-                guard let credits = try result() else { return }
+                guard let credits = try result() else {
+                    throw BusinessError.invalidValue
+                }
                 _self.credits = credits
             } catch {
                 HandleError.handle(error: error)

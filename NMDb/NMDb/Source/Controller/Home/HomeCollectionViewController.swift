@@ -80,12 +80,14 @@ class HomeCollectionViewController: UICollectionViewController, Identifiable {
             guard let _self = self else { return }
             
             do {
-                guard let movieList = try result() else { return }
+                guard let movieList = try result() else {
+                    throw BusinessError.invalidValue
+                }
                 _self.upcomingMovies = movieList.results
-                _self.refreshControl.endRefreshing()
             } catch {
                 HandleError.handle(error: error)
             }
+            _self.refreshControl.endRefreshing()
         }
     }
     
@@ -94,12 +96,15 @@ class HomeCollectionViewController: UICollectionViewController, Identifiable {
             guard let _self = self else { return }
             
             do {
-                guard let movieList = try result() else { return }
+                guard let movieList = try result() else {
+                    throw BusinessError.invalidValue
+                }
                 _self.popularMovies = movieList.results
                 _self.refreshControl.endRefreshing()
             } catch {
                 HandleError.handle(error: error)
             }
+            _self.refreshControl.endRefreshing()
         }
     }
     

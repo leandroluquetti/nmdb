@@ -16,21 +16,13 @@ enum LocalizableStrings: String {
     case popularMovies
     
     // Error Handling
-    case genericError
-    case fatalError
-    case unexpectedError
-    case businessError
-    case technicalError
-    case invalidDictionary
-    case invalidValue
+    case friendlyErrorTitle
+    case friendlyError
     case errorParseData
-    case errorOnRequest
-    case invalidURL
-    case notFound
-    case httpError
-    case errorOnParseRequest
     case offlineMode
-    case apiAccess
+    case httpError
+    case invalidURL
+    case genericError
     
     /// This method localizes the raw value of the object
     ///
@@ -38,5 +30,4 @@ enum LocalizableStrings: String {
     func localize() -> String {
         return self.rawValue.localize()
     }
-
 }

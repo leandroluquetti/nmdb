@@ -154,12 +154,12 @@ class NetworkProvider {
         request.httpMethod = httpMethod.rawValue
         
         guard let completeURL = self.completeURL(urlPath) else {
-            throw TechnicalError.invalidURL
+            throw ApiError.invalidURL
             
         }
         guard var urlComponents: URLComponents = URLComponents(url: completeURL,
                                                                resolvingAgainstBaseURL: false) else {
-            throw TechnicalError.invalidURL
+            throw ApiError.invalidURL
         }
         
         //checking if parameters are needed
@@ -250,7 +250,7 @@ class NetworkProvider {
             
             //unwraping httpResponse
             guard let httpResponse = response as? HTTPURLResponse else {
-                throw TechnicalError.parse("The NSHTTPURLResponse could not be parsed")
+                throw ApiError.parse("The NSHTTPURLResponse could not be parsed")
             }
             
             //check if there is an httpStatus code ~= 200...299 (Success)
@@ -258,7 +258,7 @@ class NetworkProvider {
                 
                 //trying to get the data
                 guard let responseData = data else {
-                    throw TechnicalError.parse("Problems on parsing Data from request: \(String(describing: httpResponse.url))")
+                    throw ApiError.parse("Error parsing Data from request: \(String(describing: httpResponse.url))")
                 }
                 
                 DispatchQueue.main.async(execute: {
@@ -267,7 +267,7 @@ class NetworkProvider {
                 })
             } else {
                 //checking status of http
-                throw TechnicalError.httpError(httpResponse.statusCode)
+                throw ApiError.httpError(httpResponse.statusCode)
             }
         } catch let errorCallback {
             DispatchQueue.main.async(execute: {

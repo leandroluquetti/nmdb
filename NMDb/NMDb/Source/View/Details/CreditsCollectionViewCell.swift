@@ -42,7 +42,7 @@ class CreditsCollectionViewCell: UICollectionViewCell, Identifiable {
                 guard let _self = self else { return }
                 
                 if image != nil {
-                    _self.imageView.contentMode = .scaleAspectFit
+                    _self.imageView.contentMode = .scaleAspectFill
                 }
             })
         }
