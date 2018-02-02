@@ -2,6 +2,9 @@
 
 Test Application developed using [TMDb API](https://developers.themoviedb.org)
 
+![](screenshots/ss01.png =300x)
+![](screenshots/ss03.png =300x)
+
 ## Requirements
 
  - Xcode 9
