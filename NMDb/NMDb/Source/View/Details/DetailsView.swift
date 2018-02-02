@@ -19,6 +19,9 @@ class DetailsView: UIView {
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    /// fill Screen with movie
+    ///
+    /// - Parameter movie: movie object
     func fillScreen(movie: Movie) {
         loadBanner(url: movie.backdropPath)
         loadPoster(url: movie.posterPath)
@@ -37,6 +40,9 @@ class DetailsView: UIView {
         showLoading(false)
     }
     
+    /// Show loading view
+    ///
+    /// - Parameter show: show or hide
     func showLoading(_ show: Bool) {
         if show {
             loadingView.isHidden = false

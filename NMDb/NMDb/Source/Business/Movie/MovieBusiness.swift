@@ -19,7 +19,9 @@ class MovieBusiness {
     private var upcomingList: MovieList?
     private var popularList: MovieList?
     
-    init(withProvider aProvider: MovieApiProtocol = MovieApiProvider()) {
+    init(withProvider
+         aProvider: MovieApiProtocol = (Environment.current() == .mock ? MovieMockProvider() : MovieApiProvider()) ) {
+        
         self.provider = aProvider
     }
     
@@ -63,7 +65,13 @@ class MovieBusiness {
                     }
                     
                     guard let upcomingList = try? JSONDecoder().decode(MovieList.self, from: upcomingResult) else {
-                        throw BusinessError.parse("Could not parse response Json into Object: MovieBusiness.upcomingMovies")
+                        throw BusinessError.parse("""
+                            Could not parse response Json into Object: MovieBusiness.upcomingMovies")
+                        """)
+                    }
+                    
+                    if upcomingList.results == nil {
+                        throw BusinessError.parse("Could not parse results: MovieBusiness.upcomingMovies")
                     }
                     
                     if _self.upcomingList == nil {
@@ -125,7 +133,13 @@ class MovieBusiness {
                     }
                     
                     guard let popularList = try? JSONDecoder().decode(MovieList.self, from: popularResult) else {
-                        throw BusinessError.parse("Could not parse response Json into Object: MovieBusiness.popularMovies")
+                        throw BusinessError.parse("""
+                            Could not parse response Json into Object: MovieBusiness.popularMovies
+                        """)
+                    }
+                    
+                    if popularList.results == nil {
+                        throw BusinessError.parse("Could not parse results: MovieBusiness.popularMovies")
                     }
                     
                     if _self.popularList == nil {
@@ -176,6 +190,10 @@ class MovieBusiness {
                         throw BusinessError.parse("Could not parse response Json into Object: MovieBusiness.movie")
                     }
                     
+                    if movie.identifier == nil {
+                        throw BusinessError.parse("Could not parse results: MovieBusiness.movie")
+                    }
+                    
                     completion { movie }
                     
                 } catch {
@@ -216,6 +234,10 @@ class MovieBusiness {
                     
                     guard let credits = try? JSONDecoder().decode(Credits.self, from: creditsResult) else {
                         throw BusinessError.parse("Could not parse response Json into Object: MovieBusiness.credits")
+                    }
+                    
+                    if credits.castList == nil || credits.crewList == nil {
+                        throw BusinessError.parse("Could not parse results: MovieBusiness.credits")
                     }
                     
                     completion { credits }

@@ -37,6 +37,7 @@ class CharacterCell: UICollectionViewCell, Identifiable {
         
     }
     
+    /// Display char
     func displayCharacter() {
         animationView?.play()
     }
@@ -60,6 +61,11 @@ class AnimatedTextField: UIView {
         }
     }
     
+    /// TextField Initializar
+    ///
+    /// - Parameters:
+    ///   - frame: frame of textfield
+    ///   - text: begining text
     init(frame: CGRect, andText text: String) {
         self.text = text
         super.init(frame: frame)
@@ -96,6 +102,7 @@ class AnimatedTextField: UIView {
 
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension AnimatedTextField: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
@@ -118,6 +125,7 @@ extension AnimatedTextField: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension AnimatedTextField: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,

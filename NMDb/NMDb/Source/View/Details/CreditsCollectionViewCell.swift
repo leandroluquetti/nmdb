@@ -19,6 +19,12 @@ class CreditsCollectionViewCell: UICollectionViewCell, Identifiable {
     var subTitle: String?
     var image: String?
     
+    /// Setup cell
+    ///
+    /// - Parameters:
+    ///   - title: Main title, people name
+    ///   - subTitle: subtitle, job or character
+    ///   - image: profile image
     func setup(title: String?, subTitle: String?, image: String?) {
         self.title = title
         self.subTitle = subTitle

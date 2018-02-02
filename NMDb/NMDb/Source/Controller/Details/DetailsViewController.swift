@@ -11,14 +11,19 @@ import ElasticTransition
 
 class DetailsViewController: ElasticModalViewController, Identifiable, ViewCustomizable {
     
+    // MARK: - Properties
+    
     typealias CustomView = DetailsView
     
     private lazy var manager = {
         return DetailsManager()
     }()
     
+    /// id used to load Movie
     var movieId: Int?
-    var movie: Movie?
+    private var movie: Movie?
+    
+    // MARK: - Life Cicle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +35,10 @@ class DetailsViewController: ElasticModalViewController, Identifiable, ViewCusto
         return .lightContent
     }
     
+    // MARK: - Private methods
+    
     private func loadMovie() {
         guard let movieId = self.movieId else {
-            showError()
             return
         }
         customView.showLoading(true)
@@ -54,10 +60,6 @@ class DetailsViewController: ElasticModalViewController, Identifiable, ViewCusto
     private func fillScreen() {
         guard let movie = self.movie else { return }
         self.customView.fillScreen(movie: movie)
-    }
-    
-    private func showError() {
-        
     }
     
     override func didReceiveMemoryWarning() {

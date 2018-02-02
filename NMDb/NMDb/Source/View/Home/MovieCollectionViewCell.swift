@@ -20,6 +20,12 @@ class MovieCollectionViewCell: UICollectionViewCell, Identifiable {
     var poster: String?
     var release: String?
     
+    /// Setup Cell
+    ///
+    /// - Parameters:
+    ///   - title: movie title
+    ///   - url: poster URL
+    ///   - release: release date
     func setup(title: String?, url: String?, release: String?) {
         self.title = title
         self.poster = url

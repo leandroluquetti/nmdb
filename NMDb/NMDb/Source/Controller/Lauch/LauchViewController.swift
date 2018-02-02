@@ -11,8 +11,10 @@ import ElasticTransition
 
 class LauchViewController: UIViewController, Identifiable {
 
-    var textField: AnimatedTextField?
-    lazy var transition: ElasticTransition = {
+    // MARK: - Properties
+    
+    private var textField: AnimatedTextField?
+    private lazy var transition: ElasticTransition = {
         let transition = ElasticTransition()
         transition.edge = .right
         transition.sticky = true
@@ -21,6 +23,8 @@ class LauchViewController: UIViewController, Identifiable {
         transition.showShadow = true
         return transition
     }()
+    
+    // MARK: - Life Cicle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,8 @@ class LauchViewController: UIViewController, Identifiable {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
+    
+    // MARK: - Private Methods
     
     private func performInitialAnimation() {
         textField = AnimatedTextField(frame: self.view.bounds, andText: LocalizableStrings.mainTitle.localize())
@@ -52,6 +58,6 @@ class LauchViewController: UIViewController, Identifiable {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         segue.destination.transitioningDelegate = transition
         segue.destination.modalPresentationStyle = .custom
-        segue.destination.view.backgroundColor = UIColor.darkGray
+        segue.destination.view.backgroundColor = UIColor(named: "MainColor")
     }
 }

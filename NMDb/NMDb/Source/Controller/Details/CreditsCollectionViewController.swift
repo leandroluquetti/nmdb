@@ -12,6 +12,8 @@ private let reuseIdentifier = "Cell"
 
 class CreditsCollectionViewController: UICollectionViewController, Identifiable {
 
+    // MARK: - Properties
+    
     var movieId: Int?
     
     private var credits: Credits? {
@@ -26,10 +28,14 @@ class CreditsCollectionViewController: UICollectionViewController, Identifiable 
         return DetailsManager()
     }()
     
+    // MARK: - Life Cicle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCredits()
     }
+    
+    // MARK: - Private Methdos
     
     private func loadCredits() {
         guard let movieId = self.movieId else {
@@ -51,10 +57,9 @@ class CreditsCollectionViewController: UICollectionViewController, Identifiable 
     }
 }
 
+// MARK: UICollectionViewDataSource
 extension CreditsCollectionViewController {
     
-    // MARK: UICollectionViewDataSource
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }

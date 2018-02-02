@@ -10,6 +10,8 @@ import UIKit
 
 class HomeCollectionViewController: UICollectionViewController, Identifiable {
 
+    // MARK: - Properties
+    
     private var movieType: MovieType = .upcoming
     
     private var movies: [Movie]? {
@@ -58,6 +60,8 @@ class HomeCollectionViewController: UICollectionViewController, Identifiable {
     
     private var selectedMovieId: Int?
     
+    // MARK: - Life Cicle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.refreshControl = refreshControl
@@ -67,6 +71,8 @@ class HomeCollectionViewController: UICollectionViewController, Identifiable {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    // MARK: - Private Methods
     
     fileprivate func loadMovies(refresh: Bool = false) {
         switch movieType {
