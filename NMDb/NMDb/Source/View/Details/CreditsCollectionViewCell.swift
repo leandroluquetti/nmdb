@@ -28,7 +28,7 @@ class CreditsCollectionViewCell: UICollectionViewCell, Identifiable {
     }
     
     private func setup() {
-        let placeholder = UIImage(named: "claquete")
+        let placeholder = UIImage(named: "profile")
         
         self.imageView.image = placeholder
         self.imageView.contentMode = .center

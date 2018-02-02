@@ -26,6 +26,10 @@ class DetailsViewController: ElasticModalViewController, Identifiable, ViewCusto
         loadMovie()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     private func loadMovie() {
         guard let movieId = self.movieId else {
             showError()

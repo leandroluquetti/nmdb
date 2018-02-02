@@ -31,6 +31,10 @@ class LauchViewController: UIViewController, Identifiable {
         super.viewDidAppear(animated)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     private func performInitialAnimation() {
         textField = AnimatedTextField(frame: self.view.bounds, andText: LocalizableStrings.mainTitle.localize())
         view.addSubview(textField!)

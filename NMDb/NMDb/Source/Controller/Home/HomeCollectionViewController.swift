@@ -64,6 +64,10 @@ class HomeCollectionViewController: UICollectionViewController, Identifiable {
         loadMovies()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     fileprivate func loadMovies(refresh: Bool = false) {
         switch movieType {
         case .upcoming: loadUpcoming(refresh: refresh)
