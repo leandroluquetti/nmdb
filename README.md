@@ -13,7 +13,7 @@ Test Application developed using [TMDb API](https://developers.themoviedb.org)
 
 Before build the project please run a `pod install` and `carthage update`
 
-## Enviroiment
+## Environment
 
  - *Mock*: When running the application on this build configuration it does not use the NetworkProvider to connect to the API its simply start mocking all request using local data
  .
