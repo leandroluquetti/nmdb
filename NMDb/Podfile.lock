@@ -1,0 +1,37 @@
+PODS:
+  - ElasticTransition (3.1.2):
+    - MotionAnimation (~> 0.1.3)
+  - lottie-ios (2.1.5)
+  - MotionAnimation (0.1.3)
+  - SwiftLint (0.24.2)
+
+DEPENDENCIES:
+  - ElasticTransition (from `https://github.com/nucci/ElasticTransition.git`, branch `swift4`)
+  - lottie-ios
+  - MotionAnimation (from `https://github.com/nucci/MotionAnimation.git`)
+  - SwiftLint
+
+EXTERNAL SOURCES:
+  ElasticTransition:
+    :branch: swift4
+    :git: https://github.com/nucci/ElasticTransition.git
+  MotionAnimation:
+    :git: https://github.com/nucci/MotionAnimation.git
+
+CHECKOUT OPTIONS:
+  ElasticTransition:
+    :commit: 94b7dd9eec96061472bd4cf8f975bca17a78659b
+    :git: https://github.com/nucci/ElasticTransition.git
+  MotionAnimation:
+    :commit: 882819e1cda400f5607aff7df0821c9f64bafe58
+    :git: https://github.com/nucci/MotionAnimation.git
+
+SPEC CHECKSUMS:
+  ElasticTransition: e592d2d4467d1251158fbaf6099b34919771f50e
+  lottie-ios: 836cdbba92f62f3c6a00e37a4ce485321fe317cf
+  MotionAnimation: 04aa5b84b09989f0b753e030bd8558745523399e
+  SwiftLint: 2aa21b96c8d13396a051bc1cb659d2ce1e0075b0
+
+PODFILE CHECKSUM: 30bc726a3b5f5cbc3f3c98265584b6c278dd76e0
+
+COCOAPODS: 1.3.1

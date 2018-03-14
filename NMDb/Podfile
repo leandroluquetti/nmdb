@@ -1,0 +1,21 @@
+platform :ios, '10.0'
+
+target 'NMDb' do
+  use_frameworks!
+  
+  pod "MotionAnimation", :git => 'https://github.com/nucci/MotionAnimation.git'
+  pod "ElasticTransition", :git => 'https://github.com/nucci/ElasticTransition.git', :branch => 'swift4'
+  pod "SwiftLint"
+  pod "lottie-ios"
+  
+  target 'NMDbTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'NMDbUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
