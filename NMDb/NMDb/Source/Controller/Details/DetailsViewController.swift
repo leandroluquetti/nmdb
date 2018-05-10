@@ -43,14 +43,14 @@ class DetailsViewController: ElasticModalViewController, Identifiable, ViewCusto
         }
         customView.showLoading(true)
         manager.fetchMovie(identifier: movieId) { [weak self] (result) in
-            guard let _self = self else { return }
+            guard let weakSelf = self else { return }
             
             do {
                 guard let movie = try result() else {
                     throw BusinessError.invalidValue
                 }
-                _self.movie = movie
-                _self.fillScreen()
+                weakSelf.movie = movie
+                weakSelf.fillScreen()
             } catch {
                 HandleError.handle(error: error)
             }

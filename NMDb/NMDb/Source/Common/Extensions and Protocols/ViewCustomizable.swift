@@ -16,7 +16,7 @@ protocol ViewCustomizable: class {
     var customView: CustomView { get }
 }
 
-extension ViewCustomizable where Self : UIViewController {
+extension ViewCustomizable where Self: UIViewController {
     
     var customView: CustomView {
         guard let customView = self.view as? CustomView else { fatalError("Could not cast Custom View") }

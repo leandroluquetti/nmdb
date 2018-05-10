@@ -65,10 +65,10 @@ class DetailsView: UIView {
             self.posterImage.kf.setImage(with: url,
                                          placeholder: placeholder,
                                          completionHandler: { [weak self] (image, _, _, _) in
-                guard let _self = self else { return }
+                guard let weakSelf = self else { return }
     
                 if image != nil {
-                    _self.posterImage.contentMode = .scaleAspectFill
+                    weakSelf.posterImage.contentMode = .scaleAspectFill
                 }
             })
         }
@@ -86,10 +86,10 @@ class DetailsView: UIView {
             self.bannerImage.kf.setImage(with: url,
                                          placeholder: placeholder,
                                          completionHandler: { [weak self] (image, _, _, _) in
-                                            guard let _self = self else { return }
+                                            guard let weakSelf = self else { return }
                                             
                                             if image != nil {
-                                                _self.bannerImage.contentMode = .scaleAspectFill
+                                                weakSelf.bannerImage.contentMode = .scaleAspectFill
                                             }
             })
         }
@@ -112,7 +112,7 @@ class DetailsView: UIView {
         var runtimeString = ""
         
         if let genres = genres {
-            genresString = genres.flatMap({ (gnr) -> String? in
+            genresString = genres.compactMap({ (gnr) -> String? in
                 gnr.name
             }).joined(separator: ", ")
         }

@@ -83,34 +83,34 @@ class HomeCollectionViewController: UICollectionViewController, Identifiable {
     
     private func loadUpcoming(refresh: Bool) {
         manager.upcomingMovies(refresh: refresh) { [weak self] (result) in
-            guard let _self = self else { return }
+            guard let weakSelf = self else { return }
             
             do {
                 guard let movieList = try result() else {
                     throw BusinessError.invalidValue
                 }
-                _self.upcomingMovies = movieList.results
+                weakSelf.upcomingMovies = movieList.results
             } catch {
                 HandleError.handle(error: error)
             }
-            _self.refreshControl.endRefreshing()
+            weakSelf.refreshControl.endRefreshing()
         }
     }
     
     private func loadPopular(refresh: Bool) {
         manager.popularMovies(refresh: refresh) { [weak self] (result) in
-            guard let _self = self else { return }
+            guard let weakSelf = self else { return }
             
             do {
                 guard let movieList = try result() else {
                     throw BusinessError.invalidValue
                 }
-                _self.popularMovies = movieList.results
-                _self.refreshControl.endRefreshing()
+                weakSelf.popularMovies = movieList.results
+                weakSelf.refreshControl.endRefreshing()
             } catch {
                 HandleError.handle(error: error)
             }
-            _self.refreshControl.endRefreshing()
+            weakSelf.refreshControl.endRefreshing()
         }
     }
     

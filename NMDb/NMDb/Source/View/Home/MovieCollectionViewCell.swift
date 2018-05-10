@@ -46,10 +46,10 @@ class MovieCollectionViewCell: UICollectionViewCell, Identifiable {
             self.posterImage.kf.setImage(with: url,
                                          placeholder: placeholder,
                                          completionHandler: { [weak self] (image, _, _, _) in
-                guard let _self = self else { return }
+                guard let weakSelf = self else { return }
                 
                 if image != nil {
-                    _self.posterImage.contentMode = .scaleAspectFill
+                    weakSelf.posterImage.contentMode = .scaleAspectFill
                 }
             })
         }

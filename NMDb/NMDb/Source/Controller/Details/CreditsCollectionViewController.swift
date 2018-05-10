@@ -43,13 +43,13 @@ class CreditsCollectionViewController: UICollectionViewController, Identifiable 
         }
         
         manager.fetchCredits(identifier: movieId) { [weak self] (result) in
-            guard let _self = self else { return }
+            guard let weakSelf = self else { return }
             
             do {
                 guard let credits = try result() else {
                     throw BusinessError.invalidValue
                 }
-                _self.credits = credits
+                weakSelf.credits = credits
             } catch {
                 HandleError.handle(error: error)
             }

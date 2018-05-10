@@ -46,8 +46,7 @@ class LauchViewController: UIViewController, Identifiable {
         view.addSubview(textField!)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            guard let _self = self else { return }
-            _self.openHome()
+            self?.openHome()
         }
     }
     

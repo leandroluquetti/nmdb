@@ -58,7 +58,7 @@ class MovieBusiness {
             let parameters: NetworkParameters = (nil, request)
             provider.upcomingMovies(withParameters: parameters, { [weak self] ( result ) in
                 do {
-                    guard let _self = self else { return }
+                    guard let weakSelf = self else { return }
                     
                     guard let upcomingResult = try result() else {
                         throw BusinessError.parse("Could not parse response Data: MovieBusiness.upcomingMovies")
@@ -74,13 +74,13 @@ class MovieBusiness {
                         throw BusinessError.parse("Could not parse results: MovieBusiness.upcomingMovies")
                     }
                     
-                    if _self.upcomingList == nil {
-                        _self.upcomingList = upcomingList
+                    if weakSelf.upcomingList == nil {
+                        weakSelf.upcomingList = upcomingList
                     } else {
-                        _self.append(movieList: upcomingList, to: &_self.upcomingList)
+                        weakSelf.append(movieList: upcomingList, to: &weakSelf.upcomingList)
                     }
                     
-                    completion { _self.upcomingList }
+                    completion { weakSelf.upcomingList }
                     
                 } catch let error {
                     completion { throw error }
@@ -126,7 +126,7 @@ class MovieBusiness {
             let parameters: NetworkParameters = (nil, request)
             provider.popularMovies(withParameters: parameters, { [weak self] ( result ) in
                 do {
-                    guard let _self = self else { return }
+                    guard let weakSelf = self else { return }
                     
                     guard let popularResult = try result() else {
                         throw BusinessError.parse("Could not parse response Data: MovieBusiness.popular")
@@ -142,13 +142,13 @@ class MovieBusiness {
                         throw BusinessError.parse("Could not parse results: MovieBusiness.popularMovies")
                     }
                     
-                    if _self.popularList == nil {
-                        _self.popularList = popularList
+                    if weakSelf.popularList == nil {
+                        weakSelf.popularList = popularList
                     } else {
-                        _self.append(movieList: popularList, to: &_self.popularList)
+                        weakSelf.append(movieList: popularList, to: &weakSelf.popularList)
                     }
                     
-                    completion { _self.popularList }
+                    completion { weakSelf.popularList }
                     
                 } catch let error {
                     completion { throw error }
