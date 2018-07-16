@@ -1,7 +1,16 @@
-language: swift # or objective-c
+language: swift
 osx_image: xcode9.4
+
+cache: cocoapods
+podfile: NMDb/Podfile
+
+before_install:
+  - gem install cocoapods
+ 
 script:
   - cd NMDb
+  - pod install
   - xcodebuild -scheme NMDb -workspace NMDb.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6S,OS=11.4' build test
+  
 after_success:
   - bash <(curl -s https://codecov.io/bash)
