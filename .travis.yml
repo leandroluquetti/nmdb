@@ -4,8 +4,8 @@ osx_image: xcode9.4
 podfile: NMDb/Podfile
 
   cache:
-   carthage: true
-   cocoapods: true
+   - carthage: true
+   - cocoapods: true
 
 before_install:
   - brew update
