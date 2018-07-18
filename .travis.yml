@@ -9,11 +9,11 @@ before_install:
   - brew update
   - gem install cocoapods
   - brew outdated carthage || brew upgrade carthage
-  - carthage bootstrap --verbose
  
 script:
   - cd NMDb
   - pod install
+  - carthage bootstrap --verbose
   - xcodebuild -scheme NMDb -workspace NMDb.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6S,OS=11.4' build test
   
 after_success:
