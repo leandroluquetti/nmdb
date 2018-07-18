@@ -1,4 +1,6 @@
-# Nucci Movie Database
+[![Build Status][travis-image]][travis-url] [![codecov.io](https://codecov.io/github/leandroluquetti/nmdb/coverage.svg?branch=master)](https://codecov.io/github/leandroluquetti/nmdb?branch=master)
+
+# Movie Database
 
 Test Application developed using [TMDb API](https://developers.themoviedb.org)
 
