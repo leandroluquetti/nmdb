@@ -9,7 +9,7 @@ before_install:
   - brew update
   - gem install cocoapods
   - brew outdated carthage || brew upgrade carthage
-  - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-build
+  - carthage bootstrap --verbose
  
 script:
   - cd NMDb
