@@ -1,4 +1,4 @@
-[![Build Status][travis-image]][travis-url] [![codecov.io](https://codecov.io/github/leandroluquetti/nmdb/coverage.svg?branch=master)](https://codecov.io/github/leandroluquetti/nmdb?branch=master)
+[![Build Status][travis-image]][travis-url][![codecov.io](https://codecov.io/github/leandroluquetti/nmdb/coverage.svg?branch=master)](https://codecov.io/github/leandroluquetti/nmdb?branch=master)
 
 # Movie Database
 
@@ -41,4 +41,7 @@ I used a architecure based in layers that I'm used to it.
  - *Kingfisher*: Easy assync image loader and provides cache
  - *SwiftMessages*: Used to provide Error messages in cases when something goes wrong
  - *Reachability*: Internet Concection checker
+ 
+[travis-image]: https://travis-ci.org/leandroluquetti/nmdb.svg?branch=master
+[travis-url]: https://travis-ci.org/leandroluquetti/nmdb
  
