@@ -1,11 +1,17 @@
 language: swift
 osx_image: xcode9.4
 
-cache: cocoapods
 podfile: NMDb/Podfile
 
+  cache:
+   carthage: true
+   cocoapods: true
+
 before_install:
+  - brew update
   - gem install cocoapods
+  - brew outdated carthage || brew upgrade carthage
+  - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-build
  
 script:
   - cd NMDb
