@@ -889,7 +889,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NMDb/Pods-NMDb-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NMDb/Pods-NMDb-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ElasticTransition/ElasticTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/MotionAnimation/MotionAnimation.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
@@ -902,7 +902,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NMDb/Pods-NMDb-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NMDb/Pods-NMDb-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BD8E14DF939167DF575F60AA /* [CP] Check Pods Manifest.lock */ = {
@@ -953,7 +953,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		E1FFF23220208FE100A602E6 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
