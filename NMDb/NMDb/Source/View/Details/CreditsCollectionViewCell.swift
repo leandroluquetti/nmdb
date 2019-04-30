@@ -9,13 +9,13 @@
 import UIKit
 import Kingfisher
 
-class CreditsCollectionViewCell: UICollectionViewCell, Identifiable {
+class creditsCollectionViewCell: UICollectionViewCell, Identifiable {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTileLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    var title: String?
+    var Title: String?
     var subTitle: String?
     var image: String?
     
@@ -25,12 +25,7 @@ class CreditsCollectionViewCell: UICollectionViewCell, Identifiable {
     ///   - title: Main title, people name
     ///   - subTitle: subtitle, job or character
     ///   - image: profile image
-    func setup(title: String?, subTitle: String?, image: String?) {
-        self.title = title
-        self.subTitle = subTitle
-        self.image = image
-        
-        setup()
+    func setup(title: String ?, subTitle: String?, image: String?){self.title = title self.subTitle = subTile self.image = image setup()
     }
     
     private func setup() {
